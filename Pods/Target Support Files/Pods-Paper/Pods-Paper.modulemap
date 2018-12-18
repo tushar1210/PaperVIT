@@ -1,0 +1,6 @@
+framework module Pods_Paper {
+  umbrella header "Pods-Paper-umbrella.h"
+
+  export *
+  module * { export * }
+}
