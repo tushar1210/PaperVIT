@@ -22,8 +22,11 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
     var val:JSON = []
     var buttonIsSelected = [Bool](repeating: false, count: 5000)
     var finalPath = ""
-    var sortedCorse = ["":[""]]
-
+    let searchController = UISearchController(searchResultsController: nil)
+    var courseName : [String] = []
+    var courseCode:[String] = []
+    var filteredObjects = [data]()
+    
     @IBOutlet weak var headLabel: UILabel!
     
     @IBOutlet weak var table: UITableView!
@@ -31,12 +34,21 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     //   self.table.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         self.title = type
         initialise()
         get()
         
         table.delegate = self
         table.dataSource = self
+    
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search by Corse Name or Code"
+        searchController.searchBar.tintColor = .white
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
     }
     
     
@@ -68,11 +80,11 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         Alamofire.request(self.url, method: .get).responseJSON { (response) in
             if(response.result.isSuccess){
                 let json = JSON(response.result.value!)
-                self.val = json
+                
                // print(json.count)
             
             while(self.i<json.count){
-
+                self.val = json
                 let obj = data()
                 obj.name = json[self.i]["course_name"].stringValue
                 obj.code = json[self.i]["course_code"].stringValue
@@ -81,16 +93,16 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
                 obj.id = json[self.i]["id"].intValue
                 obj.dataDir = json[self.i]["data_dir"].stringValue
                 self.objArray.append(obj)
-                
                 self.table.reloadData()
                 self.i+=1
                 
                 }
-                self.sortCourse(json : self.val)
             }
         }
         
     }
+    
+
     func CreateLink(pos:Int){
         let path = baseURL+objArray[pos].dataDir
         finalPath = path
@@ -101,10 +113,7 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         WebViewVC.stringPassed = finalPath
     }
 
-    func sortCourse(json : JSON){
-        print("VAL = ",json.count)
-        
-    }
+
     
     
 }
@@ -120,6 +129,10 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
 extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if isFiltering(){
+            return filteredObjects.count
+        }
+        
         return objArray.count
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -141,20 +154,32 @@ extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
         cell.layer.cornerRadius = 20
         cell.isUserInteractionEnabled = true
         cell.cellDelegate = self
-       
+        let dataa : data
         if objArray.count>0{
             cell.button.tag = indexPath.section
             cell.button.backgroundColor = .white
-            cell.courseCode.text = objArray[indexPath.section].code
-            cell.courseName.text = objArray[indexPath.section].name
-            cell.slot.text = objArray[indexPath.section].slot
-            cell.year.text = objArray[indexPath.section].year
-            if buttonIsSelected[indexPath.section] == true{
-                //cell.button.backgroundColor = .green
+            if isFiltering(){
+                dataa = filteredObjects[indexPath.section]
+                
             }
             else{
-                cell.button.backgroundColor = .white
+                dataa = objArray[indexPath.section]
             }
+            cell.courseCode.text = dataa.code
+            cell.courseName.text = dataa.name
+            cell.slot.text = dataa.slot
+            cell.year.text = dataa.year
+            courseCode.append(objArray[indexPath.section].name)
+            courseName.append(objArray[indexPath.section].code)
+            filteredObjects.append(objArray[indexPath.section])
+           
+            
+//            if buttonIsSelected[indexPath.section] == true{
+//                //cell.button.backgroundColor = .green
+//            }
+//            else{
+//                cell.button.backgroundColor = .white
+//            }
         }
         return cell
     }
@@ -177,10 +202,33 @@ extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
         
+    
     }
 }
 
-
+extension CatOneViewController:UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    
+    }
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredObjects = objArray.filter({ (data : data) -> Bool in
+            return data.name.lowercased().contains(searchText.lowercased()) || data.code.lowercased().contains(searchText.lowercased())
+        })
+        table.reloadData()
+    }
+    
+    func isFiltering()->Bool{
+        
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+}
 
 
 
