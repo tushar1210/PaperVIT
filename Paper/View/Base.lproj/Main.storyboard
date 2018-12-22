@@ -275,13 +275,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wb0-iv-pJ4">
-                                <rect key="frame" x="16" y="88" width="343" height="579"/>
+                                <rect key="frame" x="16" y="80" width="343" height="587"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search by Name, Course Code" id="HbF-MR-2ok">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="barTintColor" red="0.2156862745" green="0.26274509800000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="Wb0-iv-pJ4" id="o5e-LG-Alf"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="84" id="VRZ-w3-Ajn" customClass="TableViewCell" customModule="Paper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="84"/>
+                                        <rect key="frame" x="0.0" y="84" width="343" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VRZ-w3-Ajn" id="IJt-XJ-bR9">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="84"/>
@@ -355,13 +365,23 @@
                     <navigationItem key="navigationItem" title="CAT1" id="C61-tM-RVq"/>
                     <connections>
                         <outlet property="headLabel" destination="ug4-VG-lrT" id="Ts6-2c-eC4"/>
+                        <outlet property="searchDisplayController" destination="vAd-1e-qlk" id="bTl-m5-JV5"/>
                         <outlet property="table" destination="Wb0-iv-pJ4" id="tKp-3y-MS6"/>
                         <segue destination="3Vv-xb-f9z" kind="show" identifier="web" id="0v4-OJ-xvC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdX-nx-WLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="vAd-1e-qlk">
+                    <connections>
+                        <outlet property="delegate" destination="2ir-YD-yvw" id="NMf-uv-Vw0"/>
+                        <outlet property="searchBar" destination="HbF-MR-2ok" id="dGB-rX-iI4"/>
+                        <outlet property="searchContentsController" destination="2ir-YD-yvw" id="iXS-CM-VD0"/>
+                        <outlet property="searchResultsDataSource" destination="2ir-YD-yvw" id="aIz-TR-Q4Z"/>
+                        <outlet property="searchResultsDelegate" destination="2ir-YD-yvw" id="Hgi-ha-ggS"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="4438" y="130"/>
+            <point key="canvasLocation" x="4437.6000000000004" y="129.98500749625188"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="6oj-n1-jyk">

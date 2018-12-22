@@ -22,9 +22,9 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
     var val:JSON = []
     var buttonIsSelected = [Bool](repeating: false, count: 5000)
     var finalPath = ""
+    var sortedCorse = ["":[""]]
 
     @IBOutlet weak var headLabel: UILabel!
-    
     
     @IBOutlet weak var table: UITableView!
     
@@ -34,13 +34,14 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         self.title = type
         initialise()
         get()
+        
         table.delegate = self
         table.dataSource = self
     }
     
     
     func initialise(){
-        print("In   \(type)")
+      //  print("In   \(type)")
         switch type {
         case "CAT1":
             url = "http://namankhurpia.pythonanywhere.com/catone/";
@@ -62,13 +63,13 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         
     }
     
-    func get(){
+    func get(){ 
         
         Alamofire.request(self.url, method: .get).responseJSON { (response) in
             if(response.result.isSuccess){
                 let json = JSON(response.result.value!)
                 self.val = json
-                print(json.count)
+               // print(json.count)
             
             while(self.i<json.count){
 
@@ -83,10 +84,12 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
                 
                 self.table.reloadData()
                 self.i+=1
-                }
                 
+                }
+                self.sortCourse(json : self.val)
             }
         }
+        
     }
     func CreateLink(pos:Int){
         let path = baseURL+objArray[pos].dataDir
@@ -98,6 +101,11 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         WebViewVC.stringPassed = finalPath
     }
 
+    func sortCourse(json : JSON){
+        print("VAL = ",json.count)
+        
+    }
+    
     
 }
 

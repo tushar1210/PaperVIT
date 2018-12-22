@@ -15,5 +15,4 @@ class data{
     var id = 0
     var slot = ""
     var year = ""
-    var isDownloaded = false
 }
