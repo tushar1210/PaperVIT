@@ -25,23 +25,19 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-   
-
     
     @IBAction func button(_ sender: UIButton) {
         cellDelegate?.didPressButton(sender.tag)
 
     }
-
-    
-
 }
+
+
 protocol TableViewCellDelegate : class {
     func didPressButton(_ tag: Int)
 }

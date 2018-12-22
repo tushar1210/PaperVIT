@@ -34,18 +34,18 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   self.table.register(TableViewCell.self, forCellReuseIdentifier: "cell")
+        
         self.title = type
         initialise()
         get()
-        
         table.delegate = self
         table.dataSource = self
-    
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.white
+
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search by Corse Name or Code"
-        searchController.searchBar.tintColor = .white
+        searchController.searchBar.placeholder = " by Corse Name or Code"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -80,28 +80,24 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         Alamofire.request(self.url, method: .get).responseJSON { (response) in
             if(response.result.isSuccess){
                 let json = JSON(response.result.value!)
-                
-               // print(json.count)
-            
-            while(self.i<json.count){
-                self.val = json
-                let obj = data()
-                obj.name = json[self.i]["course_name"].stringValue
-                obj.code = json[self.i]["course_code"].stringValue
-                obj.slot = json[self.i]["slot"].stringValue
-                obj.year = json[self.i]["year"].stringValue
-                obj.id = json[self.i]["id"].intValue
-                obj.dataDir = json[self.i]["data_dir"].stringValue
-                self.objArray.append(obj)
-                self.table.reloadData()
-                self.i+=1
-                
+          
+                while(self.i<json.count){
+                    self.val = json
+                    let obj = data()
+                    obj.name = json[self.i]["course_name"].stringValue
+                    obj.code = json[self.i]["course_code"].stringValue
+                    obj.slot = json[self.i]["slot"].stringValue
+                    obj.year = json[self.i]["year"].stringValue
+                    obj.id = json[self.i]["id"].intValue
+                    obj.dataDir = json[self.i]["data_dir"].stringValue
+                    self.objArray.append(obj)
+                    self.table.reloadData()
+                    self.i+=1
                 }
             }
         }
         
     }
-    
 
     func CreateLink(pos:Int){
         let path = baseURL+objArray[pos].dataDir
@@ -112,16 +108,8 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         let WebViewVC : WebViewController = segue.destination as! WebViewController
         WebViewVC.stringPassed = finalPath
     }
-
-
-    
     
 }
-
-
-
-
-
 
 
 //MARK: - Table View Methods
@@ -173,13 +161,6 @@ extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
             courseName.append(objArray[indexPath.section].code)
             filteredObjects.append(objArray[indexPath.section])
            
-            
-//            if buttonIsSelected[indexPath.section] == true{
-//                //cell.button.backgroundColor = .green
-//            }
-//            else{
-//                cell.button.backgroundColor = .white
-//            }
         }
         return cell
     }

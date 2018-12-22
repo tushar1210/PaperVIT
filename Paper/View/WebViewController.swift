@@ -17,10 +17,7 @@ class WebViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         showPage()
-       
     }
-    
-
     
     func showPage(){
         print("String =  ",stringPassed)
@@ -28,7 +25,4 @@ class WebViewController: UIViewController{
         let req = URLRequest(url: URL as URL)
         webView.load(req)
     }
-    
-    
-
 }
