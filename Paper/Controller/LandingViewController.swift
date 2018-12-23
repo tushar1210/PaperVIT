@@ -17,6 +17,7 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var catOneLabel: UILabel!
     @IBOutlet weak var catTwoLabel: UILabel!
     @IBOutlet weak var fatLabel: UILabel!
+    @IBOutlet weak var aboutUsButton: UIButton!
     
     
     var typeSelected = ""
@@ -27,6 +28,7 @@ class LandingViewController: UIViewController {
         catTwo.layer.cornerRadius = 20
         fat.layer.cornerRadius = 20
         lineView.layer.cornerRadius = 5
+        aboutUsButton.layer.cornerRadius = 15
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let SB:CatOneViewController = segue.destination as! CatOneViewController

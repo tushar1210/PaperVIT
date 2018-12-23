@@ -42,7 +42,7 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         table.dataSource = self
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = UIColor.white
-
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = " by Corse Name or Code"
@@ -51,7 +51,6 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         
     }
     
-    
     func initialise(){
       //  print("In   \(type)")
         switch type {
@@ -59,12 +58,10 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
             url = "http://namankhurpia.pythonanywhere.com/catone/";
             headLabel.text = "Continuous Assessment Test 1"
             break;
-            
         case "CAT2":
             url = "http://namankhurpia.pythonanywhere.com/cattwo/";
             headLabel.text = "Continuous Assessment Test 2"
             break;
-            
         case "FAT":
             url = "http://namankhurpia.pythonanywhere.com/fat/"
             headLabel.text = "Final Assessment Test "
@@ -72,7 +69,6 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
             url = "https://www.google.com"
             headLabel.text = ""
         }
-        
     }
     
     func get(){ 
@@ -96,7 +92,6 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
                 }
             }
         }
-        
     }
 
     func CreateLink(pos:Int){
@@ -108,7 +103,6 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         let WebViewVC : WebViewController = segue.destination as! WebViewController
         WebViewVC.stringPassed = finalPath
     }
-    
 }
 
 
@@ -123,13 +117,13 @@ extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
         
         return objArray.count
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = .clear
         return headerView
     }
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -137,6 +131,7 @@ extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.layer.cornerRadius = 20
@@ -148,7 +143,6 @@ extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
             cell.button.backgroundColor = .white
             if isFiltering(){
                 dataa = filteredObjects[indexPath.section]
-                
             }
             else{
                 dataa = objArray[indexPath.section]
