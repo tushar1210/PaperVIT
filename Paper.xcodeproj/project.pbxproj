@@ -11,7 +11,6 @@
 		783F065C21BE6D3E0082C50D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783F065A21BE6D3E0082C50D /* Main.storyboard */; };
 		783F065E21BE6D450082C50D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783F065D21BE6D450082C50D /* Assets.xcassets */; };
 		783F066121BE6D450082C50D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783F065F21BE6D450082C50D /* LaunchScreen.storyboard */; };
-		783F066B21BE70550082C50D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F066A21BE70550082C50D /* PageViewController.swift */; };
 		783F066D21BECAEB0082C50D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F066C21BECAEB0082C50D /* LandingViewController.swift */; };
 		78771D0C21BEE673006F0279 /* CatOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78771D0B21BEE673006F0279 /* CatOneViewController.swift */; };
 		78A0778B21BFA92F00CF8CE5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A0778A21BFA92F00CF8CE5 /* TableViewCell.swift */; };
@@ -30,7 +29,6 @@
 		783F065D21BE6D450082C50D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		783F066021BE6D450082C50D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		783F066221BE6D450082C50D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		783F066A21BE70550082C50D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		783F066C21BECAEB0082C50D /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		78771D0B21BEE673006F0279 /* CatOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatOneViewController.swift; sourceTree = "<group>"; };
 		78A0778A21BFA92F00CF8CE5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				78771D0B21BEE673006F0279 /* CatOneViewController.swift */,
-				783F066A21BE70550082C50D /* PageViewController.swift */,
 				783F066C21BECAEB0082C50D /* LandingViewController.swift */,
 			);
 			path = Controller;
@@ -241,7 +238,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				783F066B21BE70550082C50D /* PageViewController.swift in Sources */,
 				78A0778B21BFA92F00CF8CE5 /* TableViewCell.swift in Sources */,
 				78771D0C21BEE673006F0279 /* CatOneViewController.swift in Sources */,
 				78A0779721C2F14400CF8CE5 /* WebViewController.swift in Sources */,
