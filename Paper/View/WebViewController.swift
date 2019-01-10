@@ -24,5 +24,6 @@ class WebViewController: UIViewController{
         let URL:NSURL = NSURL(string: stringPassed)!
         let req = URLRequest(url: URL as URL)
         webView.load(req)
+        
     }
 }

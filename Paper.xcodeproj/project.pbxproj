@@ -13,6 +13,7 @@
 		783F066121BE6D450082C50D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783F065F21BE6D450082C50D /* LaunchScreen.storyboard */; };
 		783F066D21BECAEB0082C50D /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F066C21BECAEB0082C50D /* LandingViewController.swift */; };
 		78771D0C21BEE673006F0279 /* CatOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78771D0B21BEE673006F0279 /* CatOneViewController.swift */; };
+		7881338521E732C800428AFB /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7881338421E732C800428AFB /* AboutUsViewController.swift */; };
 		78A0778B21BFA92F00CF8CE5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A0778A21BFA92F00CF8CE5 /* TableViewCell.swift */; };
 		78A0778D21BFAE8800CF8CE5 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A0778C21BFAE8800CF8CE5 /* data.swift */; };
 		78A0779721C2F14400CF8CE5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A0779621C2F14400CF8CE5 /* WebViewController.swift */; };
@@ -31,9 +32,11 @@
 		783F066221BE6D450082C50D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		783F066C21BECAEB0082C50D /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		78771D0B21BEE673006F0279 /* CatOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatOneViewController.swift; sourceTree = "<group>"; };
+		7881338421E732C800428AFB /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutUsViewController.swift; path = Paper/Controller/AboutUsViewController.swift; sourceTree = SOURCE_ROOT; };
 		78A0778A21BFA92F00CF8CE5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		78A0778C21BFAE8800CF8CE5 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		78A0779621C2F14400CF8CE5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		78D32CA321E7214D0071DB1D /* Paper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Paper.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 		783F065521BE6D3E0082C50D /* Paper */ = {
 			isa = PBXGroup;
 			children = (
+				78D32CA321E7214D0071DB1D /* Paper.entitlements */,
 				783F065621BE6D3E0082C50D /* AppDelegate.swift */,
 				78A0779821C38ED900CF8CE5 /* Model */,
 				78A0779921C38EE100CF8CE5 /* View */,
@@ -109,6 +113,7 @@
 		78A0779A21C38EE900CF8CE5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7881338421E732C800428AFB /* AboutUsViewController.swift */,
 				78771D0B21BEE673006F0279 /* CatOneViewController.swift */,
 				783F066C21BECAEB0082C50D /* LandingViewController.swift */,
 			);
@@ -158,6 +163,11 @@
 				TargetAttributes = {
 					783F065221BE6D3E0082C50D = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -242,6 +252,7 @@
 				78771D0C21BEE673006F0279 /* CatOneViewController.swift in Sources */,
 				78A0779721C2F14400CF8CE5 /* WebViewController.swift in Sources */,
 				783F066D21BECAEB0082C50D /* LandingViewController.swift in Sources */,
+				7881338521E732C800428AFB /* AboutUsViewController.swift in Sources */,
 				78A0778D21BFAE8800CF8CE5 /* data.swift in Sources */,
 				783F065721BE6D3E0082C50D /* AppDelegate.swift in Sources */,
 			);
@@ -390,6 +401,7 @@
 			baseConfigurationReference = 3452517FC1A413FE44BDA793 /* Pods-Paper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Paper/Paper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SDDB7WX63J;
 				INFOPLIST_FILE = Paper/Info.plist;
@@ -409,6 +421,7 @@
 			baseConfigurationReference = 1B0D6459F3262CDC3569FEAF /* Pods-Paper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Paper/Paper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SDDB7WX63J;
 				INFOPLIST_FILE = Paper/Info.plist;
