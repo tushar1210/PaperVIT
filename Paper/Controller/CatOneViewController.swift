@@ -135,7 +135,7 @@ extension CatOneViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 10
         cell.isUserInteractionEnabled = true
         cell.cellDelegate = self
         let dataa : data

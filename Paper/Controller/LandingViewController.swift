@@ -29,12 +29,12 @@ class LandingViewController: UIViewController,MFMailComposeViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 55.0/255.0, green: 67.0/255.0, blue: 77.0/255.0, alpha: 1.0)
-        catOne.layer.cornerRadius = 20
-        catTwo.layer.cornerRadius = 20
-        fat.layer.cornerRadius = 20
-        donateButton.layer.cornerRadius=15
+        catOne.layer.cornerRadius = 15
+        catTwo.layer.cornerRadius = 15
+        fat.layer.cornerRadius = 15
+        donateButton.layer.cornerRadius=10
         lineView.layer.cornerRadius = 5
-        aboutUsButton.layer.cornerRadius = 15
+        aboutUsButton.layer.cornerRadius = 10
 //        donateButton.isEnabled = false
 //        donateButton.isHidden = true
         
@@ -87,7 +87,7 @@ class LandingViewController: UIViewController,MFMailComposeViewControllerDelegat
                 if MFMailComposeViewController.canSendMail() {
                     let mail = MFMailComposeViewController()
                     mail.mailComposeDelegate = self
-                    mail.setToRecipients(["papervit@gmail.com"])
+                    mail.setToRecipients(["adgpapervit@gmail.com"])
                     mail.setSubject("I have done my part")
                     mail.setMessageBody("<b>This is my part</b>", isHTML: true)
                     let filePath = url.absoluteString
