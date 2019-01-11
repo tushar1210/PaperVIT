@@ -45,7 +45,7 @@ class CatOneViewController: UIViewController,TableViewCellDelegate {
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = " by Corse Name or Code"
+        searchController.searchBar.placeholder = " by Course Name or Code"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
