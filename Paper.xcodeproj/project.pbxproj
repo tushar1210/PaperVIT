@@ -17,6 +17,7 @@
 		78A0778B21BFA92F00CF8CE5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A0778A21BFA92F00CF8CE5 /* TableViewCell.swift */; };
 		78A0778D21BFAE8800CF8CE5 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A0778C21BFAE8800CF8CE5 /* data.swift */; };
 		78A0779721C2F14400CF8CE5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A0779621C2F14400CF8CE5 /* WebViewController.swift */; };
+		78AD7F92220C66D4009E2D2D /* AboutUsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AD7F91220C66D4009E2D2D /* AboutUsWebView.swift */; };
 		9C0376D202A2AD7ABD058D7F /* Pods_Paper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563C72D252BC53865F19C784 /* Pods_Paper.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		78A0778A21BFA92F00CF8CE5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		78A0778C21BFAE8800CF8CE5 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		78A0779621C2F14400CF8CE5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		78AD7F91220C66D4009E2D2D /* AboutUsWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsWebView.swift; sourceTree = "<group>"; };
 		78D32CA321E7214D0071DB1D /* Paper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Paper.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +88,6 @@
 				78A0779921C38EE100CF8CE5 /* View */,
 				78A0779A21C38EE900CF8CE5 /* Controller */,
 				783F065D21BE6D450082C50D /* Assets.xcassets */,
-				783F065F21BE6D450082C50D /* LaunchScreen.storyboard */,
 				783F066221BE6D450082C50D /* Info.plist */,
 			);
 			path = Paper;
@@ -104,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				783F065A21BE6D3E0082C50D /* Main.storyboard */,
+				783F065F21BE6D450082C50D /* LaunchScreen.storyboard */,
+				78AD7F91220C66D4009E2D2D /* AboutUsWebView.swift */,
 				78A0779621C2F14400CF8CE5 /* WebViewController.swift */,
 				78A0778A21BFA92F00CF8CE5 /* TableViewCell.swift */,
 			);
@@ -251,6 +254,7 @@
 				78A0778B21BFA92F00CF8CE5 /* TableViewCell.swift in Sources */,
 				78771D0C21BEE673006F0279 /* CatOneViewController.swift in Sources */,
 				78A0779721C2F14400CF8CE5 /* WebViewController.swift in Sources */,
+				78AD7F92220C66D4009E2D2D /* AboutUsWebView.swift in Sources */,
 				783F066D21BECAEB0082C50D /* LandingViewController.swift in Sources */,
 				7881338521E732C800428AFB /* AboutUsViewController.swift in Sources */,
 				78A0778D21BFAE8800CF8CE5 /* data.swift in Sources */,

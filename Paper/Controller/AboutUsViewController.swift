@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AboutUsViewController: UIViewController {
 
     @IBOutlet weak var bgview: UIView!
@@ -19,7 +20,12 @@ class AboutUsViewController: UIViewController {
        
     }
     
-
+    @IBAction func webViewButton(_ sender: Any) {
+        
+        print("abc")
+        performSegue(withIdentifier: "webview", sender: nil)
+    }
+   
 
 
 }

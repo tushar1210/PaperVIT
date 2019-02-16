@@ -22,6 +22,9 @@ class LandingViewController: UIViewController,MFMailComposeViewControllerDelegat
     @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var aboutUsButton: UIButton!
     @IBOutlet weak var donateButton: UIButton!
+    @IBOutlet weak var catOneSubView: UIView!
+    @IBOutlet weak var catTwoSubview: UIView!
+    @IBOutlet weak var fatSubView: UIView!
     
     var buttonVal=0
     var typeSelected = ""
@@ -29,9 +32,9 @@ class LandingViewController: UIViewController,MFMailComposeViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 55.0/255.0, green: 67.0/255.0, blue: 77.0/255.0, alpha: 1.0)
-        catOne.layer.cornerRadius = 15
-        catTwo.layer.cornerRadius = 15
-        fat.layer.cornerRadius = 15
+        catOneSubView.layer.cornerRadius = 15
+        catTwoSubview.layer.cornerRadius = 15
+        fatSubView.layer.cornerRadius = 15
         donateButton.layer.cornerRadius=10
         lineView.layer.cornerRadius = 5
         aboutUsButton.layer.cornerRadius = 10
@@ -109,6 +112,7 @@ class LandingViewController: UIViewController,MFMailComposeViewControllerDelegat
     
     
     @IBAction func cat1(_ sender: Any) {
+        catOne.bringSubviewToFront(self.view)
         typeSelected = catOneLabel.text!
         buttonVal=1
         performSegue(withIdentifier: "cat1", sender: nil)
@@ -116,6 +120,7 @@ class LandingViewController: UIViewController,MFMailComposeViewControllerDelegat
     
    
     @IBAction func cat2(_ sender: Any) {
+        
         typeSelected = catTwoLabel.text!
         buttonVal=1
         performSegue(withIdentifier: "cat1", sender: nil)
